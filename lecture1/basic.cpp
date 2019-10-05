@@ -9,6 +9,6 @@ int main()
     t=2;
     si=(p*r*t)/100;
     
-    cout<<"Simple Intrest is : " <<si;
+    cout<<"Simple Intrest is this : " <<si;
     
 }
