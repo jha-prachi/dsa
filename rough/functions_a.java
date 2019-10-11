@@ -3,8 +3,8 @@ public class functions_a{
    public static void main(String[] args)
    {    
         
-       int a  = scn.nectInt();
-       int b = sa
+       int a  = scn.nextInt();
+       int b = sa;
        int vapas = addsomething(a,b);
    }
 }
