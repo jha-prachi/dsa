@@ -2,9 +2,11 @@ public class functions_a{
    public Static Scanner scn = new Scanner(System.in)
    public static void main(String[] args)
    {    
-        
-       int a  = scn.nextInt();
-       int b = sa;
+            int a  = scn.nextInt(); 
+
+       // declaration  = intializatin
+       int b = a;
+       // a and b are passes initialziing the arguments
        int vapas = addsomething(a,b);
    }
 }
@@ -18,10 +20,10 @@ void printsomethinf(){
      
     System.out.println("Hellowrokfdfnasdjb  lkfdsgnb");
 }
- int addsomething(int a , int b){
-     
-     int a = scn.nextInt();
+ int addsomething(int temp , int prachi){ 
+
      int c = a+b;
+
      System.out.println(c)
  }
 

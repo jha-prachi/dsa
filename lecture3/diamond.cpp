@@ -5,8 +5,8 @@ void full(int rows){
     int nst =1;
     int nsp = rows;
 
-    for(int r = 1;r<=2*rows;r++){
-        if(r<rows){
+    for(int r = 1;r<=rows;r++){
+        if(r<=rows/2){
         for(int csp = 1;csp<=nsp;csp++){
             cout<<" ";
         }
