@@ -9,6 +9,7 @@ public class binaryserach{
       for (int i=0;i<arr.length;i++)
       arr[i]=sc.nextInt();
 //System.out.println(BS(arr,data));
+
 System.out.println(BSCE(arr,data));
   }
   public static  int BS(int[] arr , int data){

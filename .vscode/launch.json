@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - practice",
+            "request": "launch",
+            "mainClass": "practice",
+            "projectName": "Sept_3df82aae"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - rotation",
+            "request": "launch",
+            "mainClass": "rotation",
+            "projectName": "Sept_3df82aae"
+        }
+    ]
+}
