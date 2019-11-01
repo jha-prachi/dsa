@@ -42,16 +42,20 @@ public static int odd_Rotation(int n){
     int even =0;
     while(n!=0){
       int digit=n%10;
-      if(digit%2==1){
+      if(digit %2 ==1){
           odd++;
           System.out.print(odd); 
       }  
 
 
-      else(int res =n/10)
+      else{
+
+      
+      (int res =n/10)
           even++;
           return res;
           System.out.print(even);
+          
 
     
     }
@@ -87,35 +91,6 @@ public static int odd_Rotation(int n){
 // else{P
 // even++;
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
  //     application : 456321
