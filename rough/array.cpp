@@ -1,22 +1,22 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-// void input(vector<int> &arr){
-//     // arr = 0th index
-//     // cin>>a>>b>>c>>d>>e
-//     //  cin>>arr[0]>>arr[1]>>arr[2]>>arr[4]
-//     for(int i=0;i<arr.size();i++){
-//         cin>>arr[i];
-//     }
-// }
-// void display(vector<int> &arr){
-//     for(int i=0;i<=arr.size()-1;i++){
-//         cout<<arr[i]<<" ";
-//     }
-// }
+void input(vector<int> &arr){
+    // arr = 0th index
+    //  cin>>a>>b>>c>>d>>e
+    //  cin>>arr[0]>>arr[1]>>arr[2]>>arr[4]
+     for(int i=0;i<arr.size();i++){
+        cin>>arr[i];
+    }
+}
+void display(vector<int> &arr){
+    for(int i=0;i<=arr.size()-1;i++){
+        cout<<arr[i]<<" ";
+    }
+}
 
 int main(){
-    cout<<"enter ypur size : ";
+    cout<<"enter your size : ";
 int n;
  cin>>n;
 vector<int> arr(n,0); //declare
