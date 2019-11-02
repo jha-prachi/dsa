@@ -1,7 +1,7 @@
 import java.util.*;
 public class bit_question{
 public static Scanner scn =new Scanner(System.in);
-
+// you have to find no of ones in the given number
 public static int noofBit_01(int n){
     int count=0;
             for(int i=0; i<32;i++)
