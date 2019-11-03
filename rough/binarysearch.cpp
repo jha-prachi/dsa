@@ -17,7 +17,9 @@ int bs(vector<int> &arr, int data){
         }
     }
 }
-
+// 1 3 5 7 9 12 15
+// li            si
+    
 // next question 
 bool bs_findelement(vector <int> &arr , int data){
     int li = 0, ri=arr.size();
@@ -27,11 +29,11 @@ bool bs_findelement(vector <int> &arr , int data){
             return true;
         }
 
-
+//data is 6 ={1,5,8 9,12,35,40}
         else if(arr[mid]>data){
             ri =mid-1;
         }
-            
+// to -1 from mid means that it prevents infiite while loop.So rather than return mid always go for mid-1;       
     
         else{
             li = mid+1;
@@ -46,7 +48,7 @@ bool bs_findelement(vector <int> &arr , int data){
 int main(){
     vector<int> arr = {1 ,5,8,9,12,35,40};
     // data =7
-    cout<<(boolalpha)<<bs_findelement(arr,4);    //aise bhi kar sakte hain
+    cout<<(boolalpha)<<bs_findelement(arr,6);    //aise bhi kar sakte hain
     return 0;
 }
     
