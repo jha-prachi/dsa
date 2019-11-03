@@ -43,12 +43,38 @@ bool bs_findelement(vector <int> &arr , int data){
     }
     return false;
 }
+void bs_findelement1(vector <int> &arr , int data){
+    int li = 0, ri=arr.size();
+    while(li<=ri){
+        int mid =(li+ri)/2;
+        if(arr[mid]==data){
+            cout<<"we found ele,ent"<<endl;
+            return ; // hmara kaam hogya hai hme ans mil gya hai apko hmen return kardie
+            // break; // lop se bhar niklne k elie 
 
+        }
 
+//data is 6 ={1,5,8 9,12,35,40}
+        else if(arr[mid]>data){
+            ri =mid-1;
+        }
+// to -1 from mid means that it prevents infiite while loop.So rather than return mid always go for mid-1;       
+    
+        else{
+            li = mid+1;
+        }
+            
+        
+    }
+    cout<<"we havent found anything";
+}
+// lower bound
+// 1 1  3 3 3 3 3 3 3  4   5  6  7
 int main(){
     vector<int> arr = {1 ,5,8,9,12,35,40};
     // data =7
-    cout<<(boolalpha)<<bs_findelement(arr,6);    //aise bhi kar sakte hain
+   // cout<<(boolalpha)<<bs_findelement(arr,6);    //aise bhi kar sakte hain
+    bs_findelement1(arr,8);
     return 0;
 }
     
