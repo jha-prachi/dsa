@@ -23,10 +23,13 @@ using namespace std;
         for(int i=0;i<arr.size();i++){
             if(i%2==0){
             for(int j=0;j<arr[0].size();j++)
+            cout<<arr[i][j]<<" ";
             }
             else{
-             for(j=arr[0].size();j>0;j--) 
-            }   
+             for(int j=arr[0].size()-1;j>=0;j--) 
+             cout<<arr[i][j]<<" ";
+              } 
+        //    cout<<"  "; 
         }
     }
     
@@ -36,7 +39,8 @@ int main()
     cin>>rows>>column;
     vector<vector<int>> arr (rows,vector<int>(column,0));
     input(arr);
-    display(arr);
+    wavemotion(arr);
+   // display(arr);
     return 0;
 }
 
