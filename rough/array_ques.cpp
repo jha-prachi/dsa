@@ -10,15 +10,15 @@ using namespace std;
         }
         
     }
-    int display(vector<vector<int>> &arr){
-        for(int i =0;i<arr.size();i++){
-            for(int j =0;j<arr[0].size();j++){
-                cout<<arr[i][j]<<"  ";
-            }
-             cout<<endl;
-        }
+    // int display(vector<vector<int>> &arr){
+    //     for(int i =0;i<arr.size();i++){
+    //         for(int j =0;j<arr[0].size();j++){
+    //             cout<<arr[i][j]<"  ";
+    //         }
+    //          cout<<endl;
+    //     }
        
-    }
+    // }
     void wavemotion(vector<vector<int>> &arr){
         for(int i=0;i<arr.size();i++){
             if(i%2==0){
@@ -32,6 +32,80 @@ using namespace std;
         //    cout<<"  "; 
         }
     }
+    void exitpoint(vector<vector<int>> &arr){
+        int k=0, row=0 , col=0;
+    
+        while(true){
+            k = (k + arr[row][col])%4; //for mapping with respective 0 to 3        
+            if(k==0)
+        {
+            col++;
+            if(col==arr[0].size()){
+                cout<<"row"<<row<<"col"<<col-1;
+                break;
+            }
+        }
+            if(k==1){   
+                row++;
+                if(row==arr.size()){
+                    cout<<"row"<<row-1<<"col"<<col;
+                        break;
+                }
+  
+            }
+            if(k==2){
+                col--;
+                if(col==-1)
+                { 
+                    cout<<"row"<<row<<"col"<<col+1;
+                    break;
+                }
+            }
+            if(k==3){
+                row--;
+                if(row==-1)
+                {
+                    cout<<"row"<<row+1<<"col"<<col;
+                    break;
+                }
+            }
+        }
+    }
+    // void ExitPoint(vector<vector<int>> &arr){
+    //     int row=0 , col=0;
+    //     if(k==0){
+    //         for(int j=col;j<arr[0].size();j++){
+    //          if(arr[col][j]==1){
+    //              k++;
+    //              col=j;
+    //              break;
+    //          }  
+             
+    //         }
+    //     }
+    //     if(k==1){
+    //         for(int i=row;i<arr.size();i++){
+    //          if(arr[i][col]==1){
+    //              row=i;
+    //              k++;
+    //              break;
+    //          }  
+    //         }
+
+    //                 }
+    //     if(k==2){
+            
+    //     }
+    //     if(k==3){
+
+    //     }
+
+
+
+
+
+
+    // }
     
 int main()
 {
@@ -39,7 +113,8 @@ int main()
     cin>>rows>>column;
     vector<vector<int>> arr (rows,vector<int>(column,0));
     input(arr);
-    wavemotion(arr);
+   // wavemotion(arr);
+   exitpoint(arr);
    // display(arr);
     return 0;
 }
@@ -47,7 +122,13 @@ int main()
 
 
 
-/*
+/*w
+0 0 0 0 1
+1 0 0 1 0
+0 0 0 0 0
+0 0 0 1 0
+1 0 0 0 1
+
   0 1 2
 0
 1
