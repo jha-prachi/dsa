@@ -13,10 +13,10 @@ for (i=1;i<arr.length;i++){
 }
 return max;
 }
-public static int minimum(int[] arr ,int n) {
-    int i =0;
-    int min =arr[0];
-    for(i =0;)
+// public static int minimum(int[] arr ,int n) {
+//     int i =0;
+//     int min =arr[0];
+//     for(i =0;)
 
 }
 
