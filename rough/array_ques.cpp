@@ -13,7 +13,7 @@ using namespace std;
     int display(vector<vector<int>> &arr){
         for(int i =0;i<arr.size();i++){
             for(int j =0;j<arr[0].size();j++){
-                cout<<arr[i][j]<<"  ";
+                cout<<arr[i][j]<"  ";
             }
              cout<<endl;
         }
@@ -114,8 +114,8 @@ int main()
     vector<vector<int>> arr (rows,vector<int>(column,0));
     input(arr);
    // wavemotion(arr);
-//    exitpoint(arr);
-    display(arr);
+   exitpoint(arr);
+   // display(arr);
     return 0;
 }
 
