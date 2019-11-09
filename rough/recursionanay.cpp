@@ -26,9 +26,59 @@ using namespace std;
 
 
  }
+ // in array question, hm ek virtual index bnate hai .kyuki hme iterate karna hot ahai array ko 
+ // (arr , vidx+1);
+int maximumele(vector<int> &arr , int vidx){
+    if(vidx ==arr.size()){
+        return -1;
+    }
+    int temp = maximumele(arr, vidx+1);
+    if(temp<arr[i]){
+        temp=arr[i]
+    }
+    //temp=temp<arr[vidx]?arr[vidx]:temp; (ternary operator)
+    //return temp;  
+    return temp;
+}
 int main(){
     //cout<<power(2,8);
     //cout<<factoraial(5);
     cout<<betterpower(2,9);
+    maximumele(arr , 0);
     return 0;
 }
+/* ^ 12 
+a^b using recursion..
+int powerab(int a , int b ){
+    a^5 = a * a^4
+    a^4 = a * a^3
+    a^3 = a * a^2
+    a^2 = a * a^1
+    a^1 = a * a^0
+
+    a^9 = a^4
+    a^4 =a^2 * a^2
+    a^2 = a^1 * a^1
+    a^1 =a^0
+  
+    a^3 = a^1 * a^1 * a
+    betterpower(a , 9)
+    betterpowr(a,4)
+    betterpower(a , 2)
+    betterpower(a, 1)
+    betterpower(a, 0)
+    a^9 = a^4 
+    recurrsion with array:
+4 5 7 8 45 10
+0
+1
+2
+3
+4
+5
+
+
+}
+
+
+*/
