@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
  int factoraial(int n){
      
@@ -28,13 +29,14 @@ using namespace std;
  }
  // in array question, hm ek virtual index bnate hai .kyuki hme iterate karna hot ahai array ko 
  // (arr , vidx+1);
-int maximumele(vector<int> &arr , int vidx){
-    if(vidx ==arr.size()){
-        return -1;
-    }
+        int maximumele(vector<int> &arr , int vidx){
+                 if(vidx ==arr.size()-1)
+                         return arr[vidx];
+
     int temp = maximumele(arr, vidx+1);
-    if(temp<arr[i]){
-        temp=arr[i]
+    if(temp<arr[vidx]){
+        temp=arr[vidx];
+   
     }
     //temp=temp<arr[vidx]?arr[vidx]:temp; (ternary operator)
     //return temp;  
@@ -42,9 +44,10 @@ int maximumele(vector<int> &arr , int vidx){
 }
 int main(){
     //cout<<power(2,8);
-    //cout<<factoraial(5);
-    cout<<betterpower(2,9);
-    maximumele(arr , 0);
+    //cout<<factoraial(6);
+        vector<int> arr ={-2,-3,-5,-6}; 
+// cout<<betterpower(2,9);
+cout<< maximumele(arr , 0);
     return 0;
 }
 /* ^ 12 
