@@ -41,19 +41,95 @@ return -1;
        arr[i]=scn.nextInt();
    }
 }
+// public static boolean Check_Divisor(int[] arr , int max)
+// {int flag =0;
+//     for(int i =0; i<=arr.length-1;i++)
+//    { if(max % arr[i]==0)
+//     flag =1;
+//    }
+//    return true;
+//    else
+//    {
+//     flag =0;   
+//    }
+   
 
-    public static void main (String[] args)
+// }
+public static int Check_Divisor_01(int[] arr , int max)
+{int flag =0;
+    for(int i =0; i<=arr.length-1;i++)
+   { 
+       if(max % arr[i]!=0){
+        
+        flag =1;
+        return flag;
+       }
+        
+   }
+
+   return flag;
+   
+   
+}
+public static boolean Check_Divisor_02(int[] arr , int max)
+{boolean flag =false;
+    for(int i =0; i<=arr.length-1;i++)
+   { 
+       if(max % arr[i]!=0){
+        
+        flag =true;
+        return flag;
+       }
+        
+   }
+
+   return flag;
+   
+   
+}
+public static void Check_Divisor_03(int[] arr , int max)
+{boolean flag =false;
+    for(int i =0; i<=arr.length-1;i++)
+   { 
+       if(max % arr[i]!=0){
+        
+        flag =true;
+        break;
+       }
+        
+   }
+
+    if(flag==false){
+        System.out.println("Yes");
+    }
+    else{
+        System.out.println("No");
+    }
+   
+}
+   
+public static void main (String[] args)
     {
-    System.out.print("Enter your size : ");
-    int n =scn.nextInt();
-        int[] arr =new int [n];
-        input(arr);
+    // System.out.print("Enter your size : ");
+    // int n =scn.nextInt();
+        // int[] arr =new int [n];
+        // input(arr);
         // int res= minimumele(arr, 0);
         // System.out.print(res);
-    int a= scn.nextInt();
-    int ans =Upper_bound(arr,a);
-    System.out.print(ans);
-    }
+    // int a= scn.nextInt();
+    // int ans =Upper_bound(arr,a);
+    // System.out.print(ans);
+    // int max = somefn(arr);
+    int[] arr ={ 12, 2, 5, 3, 6, 4, 1};
+    int max=12;
+    int flagofint = Check_Divisor_01(arr, max);
+        if(flagofint==1){
+            System.out.println("No");
+        }
+        else{
+            System.out.println("Yes");
+        }
+}
 }
     
 
