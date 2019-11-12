@@ -87,6 +87,18 @@ public static boolean Check_Divisor_02(int[] arr , int max)
    
    
 }
+public static int maximum(int[] arr ){
+    int i =0; 
+    int max=arr[0];
+    for (i=1;i<arr.length;i++){
+    
+        if(arr[i]>max){
+        max=arr[i];
+        }
+    }
+    return max;
+    }    
+
 public static void Check_Divisor_03(int[] arr , int max)
 {boolean flag =false;
     for(int i =0; i<=arr.length-1;i++)
@@ -120,25 +132,22 @@ public static void main (String[] args)
     // int ans =Upper_bound(arr,a);
     // System.out.print(ans);
     // int max = somefn(arr);
-    int[] arr ={ 12, 2, 5, 3, 6, 4, 1};
-    int max=12;
-    int flagofint = Check_Divisor_01(arr, max);
+    System.out.println("enter your array size : ");
+        int n =scn.nextInt();
+        int[] arr =new int [n];
+      input(arr);
+    int ans = maximum(arr);
+    System.out.println(ans);
+    int flagofint = Check_Divisor_01(arr, ans);
         if(flagofint==1){
-            System.out.println("No");
-        }
-        else{
             System.out.println("Yes");
         }
+        else{
+            System.out.println("No");
+        }
+
 }
 }
-    
-
-
-
-
-
-
-
 
 //     {
 //        System.out.print("Enter your application number : ");
