@@ -5,34 +5,27 @@
 using namespace std;
 
 
-string removeHi(string str){
+string removeHi01(string ques){
+// base case
+    if(ques.length()==0){
+    // cout<<ans<<endl;
+    return "" ;    
+    }
+    // char ch = ques[0];
+    if(ques.length()>1 && ques[0]=='h'&&ques[1]=='i'){
+        string ros = ques.substr(2);
+        return removeHi01(ros);
+    }else{
+        string ros= ques.substr(1);
+        return ques[0]+removeHi01(ros);
+    }
+// htmk -> tmk ,"h" -> mk ,"ht"
 
-    if(str.length()==0)
-    return " ";52
 
-char ch =str[0];
-if(str.length()>1 && str[0]=='h'&& str[1]=='i' )
-return removeHi(str.substr(2));
-else
-return ch+ removeHi(str.substr(1));
 }
-//////// Remove hi from string (hit)
-// string removehit(string str)
-// if (str.length()==0)
-// return " ";
-// char ch =str[0];
-// char ch =str[1];
-// if(str.length()>2 && str[0]=='h'&& str[1]=='i' && str[2]=='t')
-// return removehit(str.substr(3));
-// else 
-// return ch1 +ch2 removehit(str.substr(2));
-// }
-
 
 int main(){
-
-string str ="ihiiihihiihiihihihii";
-   string result=removeHi(str);
-    cout<<result;
- 
+    // removeHi("hjhisdhifhi","");
+    cout<<removeHi01("ihihhithithihhhhhithitt");
+    return 0;
 }
