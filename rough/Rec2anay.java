@@ -1,24 +1,29 @@
 import java.util.Scanner;
  public class Rec2anay{
- public static int Starirs (int n)
+ public static int Starirs (int n ,String ans)
  {
+     
  int count =0;
- if(n==0){
+ if(n==0)
+ {
+
+     System.out.println(ans);
      return 1;
  }
+//  String ans ="";
  if(n>=1){
-     count+=Starirs(n-1);
+     count+=Starirs(n-1,ans+1);
  }
- System.out.println( "abhi yha hu" + " " + count);
+//  System.out.print(ans+count);
  if(n>=2)
  {
- count+=Starirs(n-2);
- System.out.println("ye call hua : ");
+ count+=Starirs(n-2,ans+2);
+//  System.out.print(ans+count);
  }
  if(n>=3)
  {
- count+=Starirs(n-3);
- System.out.println("next one : ");
+ count+=Starirs(n-3,ans+3);
+//  System.out.print(ans+count);
  }
  return count;
  }
@@ -27,7 +32,7 @@ import java.util.Scanner;
     public static void main(String[]  Args){
             //     String str="abcde";
             //     System.out.println(str.charAt(1));
-            int ans =Starirs(5);
+            int ans =Starirs(5,"");
             System.out.println(ans);
     }
 }
