@@ -83,25 +83,41 @@ char ch =ques[0];
 // permuation
 // abc bac bca acb cab acb
 // ans ki as a argument hme void type . return 
-vector<string> Permutation (string ques ){
- if(ques.length()==0)
- return ""
+vector<string> Permutation (string ques )
+{
+if(ques.length()==0)
+{
+  vector<string> base;
+        base.push_back("");
+        return base;  
 }
+char ch= ques[0];
+vector<string> Recans=Permutation(ques.substr(1));  // recursion call
+vector<string>finalans;
+for(string str:Recans)
+{
+    for(int i =0;i<=str.length();i++)
+    {
+    string start =str.substr(0,i);
+    string end =str.substr(i);
+   string s = start + ch + end;
+   finalans.push_back(s);
+    }
 
-
-
-
-
-
-
+}
+return finalans;
+}
 
 int main()
 {
     // subsequence("abc","");
     // cout<<removehiwithoutans("ihhtihithithitjfggcijbguhhlkhjgihiiihih");
-vector<string> ans  = subseqreturn("abc");
-for(string s: ans){
-    cout<<s<<" ";
-}
+// vector<string> ans  = subseqreturn("abc");
+// for(string s: ans){
+//     cout<<s<<" ";
+// }
+vector<string>myans=Permutation("abcd");
+for(string s:myans)
+cout<<s<<" ";
  return 0; 
 }
