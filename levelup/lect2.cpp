@@ -48,10 +48,45 @@ for(int i=idx;i<coins.size();i++){
 return count1;
 }
 
-int main(){
-    vector<int> arr ={2,3,5,7};
-
-int ans=coin_changeC(arr,0,10,"");
+//=================================================================================================================
+// int coinSubseq(vector<int> &coins,int idx , int target,string ans){
+//     if(idx==coins.size()|| target==0){
+//         if(target==0){
+//             cout<<ans<<endl;
+//             return 1;
+//         }
+//         return 0;
+//     }
+//     int count=0;
+//     if(target-coins[i]>=0)
+//    {count+=coinSubseq(coins,idx,target-coins[idx],ans + to_string(coins[i]));
+//    count+=coinSubseq(coins,idx+1,target,ans);
+//    }
+//    return count;
+// }
+// }
+//===================================Queen=============================================
+int Queencombi(int box,int idx,int qpsf,int tnq,string ans){
+    if(idx==box || qpsf==tnq){
+        if(qpsf==tnq){
     cout<<ans<<endl;
+    return 1;
+        }
+    return 0; 
+    }
+    int count=0;
+    count+=Queencombi(box,idx+1,qpsf+1,tnq,ans +"b"+ to_string(idx)+"q" + to_string(qpsf));
+    count+=Queencombi(box,idx+1,qpsf,tnq,ans);
+
+    return count;
+}
+
+int main()
+{
+   cout<< Queencombi(5,0,0,3,"");
+//     vector<int> arr ={2,3,5,7};
+
+// int ans=coinSubseq(arr,0,10,"");
+//     cout<<ans<<endl;
     return 0;
 }
