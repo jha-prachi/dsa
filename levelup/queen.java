@@ -67,9 +67,7 @@ public class queen{
             // box[0][3]= true -> box[1][0]=true -> (ek hi recusion call chal rhi hai )
             // tp ye jabhi false ho ja jab aage wala bnada apni sari rec call khek kar raa jayega
 
-        // hw -> coinchange (8 methids)+ iske tree diagrams
-        // queen 2d wale (4 mehtods)+ tree diagram 
-            
+       
         }
         return count;
     }
