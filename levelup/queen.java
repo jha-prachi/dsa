@@ -1,4 +1,6 @@
 import java.util.Scanner;
+
+import sun.print.SunAlternateMedia;
 public class queen{
     public static Scanner scn=new Scanner(System.in);
     public static boolean isSafe(boolean[][] box,int x, int y){
@@ -42,6 +44,67 @@ public class queen{
         count+=queencombi(box, idx+1, qpsf, er, tnq, ans);
         return count;
     }
+    //====================================================================================
+    // public static int Queenbits( int box,int bitr,int bitc,int bitd,int bitad,int tnq3
+    ){
+    //     if(qpsf==tnq || idx==col*col){
+    //         if(qpsf==tnq){
+    //             System.out.println(ans);
+    //             return 1;
+    //         }
+    //         return 0;
+    //     }
+    //     int count=0;
+    //     int a=(1<<col);
+    //     int b=(1>>row);
+    //     int c=()
+
+
+
+    //     return
+    // }
+public static boolean SudokuSafe(int[][] box,int num ,int row,int col){
+    for(int c=0;c<9;c++){
+        if(num==box [row][col])
+        return false;
+    }
+    for(int a=0;a<9;a++){
+        if(num==box[row][col])
+        return false;
+    }
+    int x=(row/3)*3;
+    int y=(col/3)*3;
+    for(int i=x;i<x+3;i++){
+        for(int j=y;j<y+3;j++){
+         if( box[i][j]==num)       
+        return false;
+       }
+    } 
+}
+   public static int Sudoku(int[][] board,int idx){
+        if(idx==81){
+            return 1;
+
+        }
+        int count=0;
+int xrow=idx/9;
+int ycol=idx%9;
+if(board [xrow][ycol]==0){
+for(int num=1;num<=9;num++){
+    if(SudokuSafe(board,num,xrow,ycol)){
+        board[xrow][ycol]=num;
+      count+=Sudoku(board, idx+1); 
+      board[xrow][ycol]=0;
+    }
+
+}
+}
+
+return count;
+
+
+    }
+    //===================================PERMUTATION===========================================================================
     public static int nqueen(boolean[][] box , int qpsf, int tnq , int lqpl , String ans ){
         if(tnq==qpsf || lqpl == box.length*box[0].length-1){
             if(tnq==qpsf){
@@ -83,9 +146,22 @@ box[x][y]=false;
   
 
     public static void main (String[] args){
-        boolean[][] box= new boolean[4][4];
-        // System.out.println(queencombi(box,0, 0,4,4, ""));
-        System.out.println(nqueen(box, 0,4, 0, ""));
+        // boolean[][] box= new boolean[4][4];
+        // // System.out.println(queencombi(box,0, 0,4,4, ""));
+        // System.out.println(nqueen(box, 0,4, 0, ""));
+
+
+       int[][] board= {{3, 0, 6, 5, 0, 8, 4, 0, 0},  
+                      {5, 2, 0, 0, 0, 0, 0, 0, 0},  
+                      {0, 8, 7, 0, 0, 0, 0, 3, 1},  
+                      {0, 0, 3, 0, 1, 0, 0, 8, 0},  
+                      {9, 0, 0, 8, 6, 3, 0, 0, 5},  
+                      {0, 5, 0, 0, 9, 0, 6, 0, 0},  
+                      {1, 3, 0, 0, 0, 0, 2, 5, 0},  
+                      {0, 0, 0, 0, 0, 0, 0, 7, 4},  
+                      {0, 0, 5, 2, 0, 6, 3, 0, 0}}; 
+                      
+                      System.out.println(Sudoku(board, 0));
 
     }
 }
