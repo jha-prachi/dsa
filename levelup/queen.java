@@ -63,6 +63,49 @@ public class queen{
 
     //     return
     // }
+//================================CROSS WORD ==============================================================================
+public static boolean canHPword(char[][]board,int x,int y,String word){
+    if(y-1==-1||board[x][y]='+'){
+        if(word.length()==board[0].length)
+        return true;
+    }
+    return false;
+}
+public static boolean[] HPword(char[][]board,int x,int y,String word){
+    boolean[] loc =new boolean[word.length()];
+    for(int j=0;j<word.length();j++)
+
+    return loc;
+}
+public static void UnPHword(char[][]board,int x,int y){
+    for(int j=0;j<loc,length();j++){
+        if(loc[j]){
+            board[x][y+j]='-';
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public static boolean SudokuSafe(int[][] box,int num ,int row,int col){
     for(int c=0;c<9;c++){
         if(num==box [row][col])

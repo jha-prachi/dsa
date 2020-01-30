@@ -74,3 +74,7 @@ int main()
 //     cout<<ans<<endl;
     return 0;
 }
+/* 
+tu pareshaan ths nahh?
+
+*/
