@@ -76,29 +76,60 @@ public class BTree {
         int rs = size(root.right);
         return ls + rs + 1;
     }
-    static Node findnode  = new Node();
+
+    static Node findnode = new Node();
+
     public static Boolean FIND(Node root, int data) {
         if (root.data == data) {
-            findnode =   root;
+            findnode = root;
             return true;
         }
         boolean ls = FIND(root.left, data);
-        if(ls == true){
+        if (ls == true) {
             return true;
         }
         boolean rs = FIND(root.right, data);
-        if(rs == true){
+        if (rs == true) {
             return true;
         }
         return false;
     }
 
+    public static Node makeBST(int[] arr, int li, int ri) {
+        if (li > ri)
+            return null;
+        int mid = (li + ri) / 2;
+        Node root = new Node(arr[mid], null, null);
+        root.left = makeBST(arr, li, mid - 1);
+        root.right = makeBST(arr, mid + 1, ri);
+
+        return root;
+    }
+
+    public static Node adddata(Node root, int data) {
+        if (root == null) {
+            Node ans = new Node(data, null, null);
+            return ans;
+        }
+        if (data < root.data) {
+            root.left = adddata(root.left, data);
+        } else {
+            root.right = adddata(root.right, data);
+        }
+        return root;
+    }
+
     public static void main(String[] args) {
-        int[] arr = { 10, 20, 30, -1, -1, 40, -1, -1, 50, 60, 80, -1, -1, -1, 70, 90, -1, 100, -1, -1, -1 };
-        Node root = TreesCons(arr);
-        System.out.println(height(root));
-       // System.out.println(size(root));
+        // int[] arr = { 10, 20, 30, -1, -1, 40, -1, -1, 50, 60, 80, -1, -1, -1, 70, 90,
+        // -1, 100, -1, -1, -1 };
+        // Node root = TreesCons(arr);
+        // System.out.println(height(root));
+        // System.out.println(size(root));
         // display( root);
+        int[] array = { 10, 20, 30, 40, 50, 60, 70, 80, 90 };
+        Node root1 = makeBST(array, 0, array.length - 1);
+        Node ans = adddata(root1, 25);
+        display(ans);
 
     }
 }
