@@ -149,19 +149,33 @@ public class BTree {
     public static Node Rangeprint(Node root, int a, int b) {
         if (root == null)
             return null;
-            if(root.data<a){
-                return Rangeprint(root.right, a, b);
-            }
-            else if (b < root.data) {
-                return Rangeprint(root.left, a, b);
-            } else {
-                if(root.data>=a && root.data<=b){
+        if (root.data < a) {
+            return Rangeprint(root.right, a, b);
+        } else if (b < root.data) {
+            return Rangeprint(root.left, a, b);
+        } else {
+            if (root.data >= a && root.data <= b) {
                 System.out.println(root.data);
-                }
-                Rangeprint(root.right, a, b);
-                Rangeprint(root.left, a, b);
-                return root;
             }
+            Rangeprint(root.right, a, b);
+            Rangeprint(root.left, a, b);
+            return root;
+        }
+    }
+
+    static int maxlen = 1;
+//=====================================Longest consective Sequence================================
+    public static void LCSeq(Node root, int potential, int currlen) {
+        if (root == null)
+            return;
+        if (root.data == potential) {
+            currlen++;
+            maxlen = Math.max(currlen, maxlen);
+        } else {
+            currlen = 1;
+        }
+        LCSeq(root.left, root.data + 1, currlen);
+        LCSeq(root.right, root.data + 1, currlen);
     }
 
     public static void main(String[] args) {
@@ -171,14 +185,18 @@ public class BTree {
         // System.out.println(height(root));
         // System.out.println(size(root));
         // display( root);
-        int[] array = { 10, 20, 30, 40, 50, 60, 70, 80, 90 };
-        Node root1 = makeBST(array, 0, array.length - 1);
+        //int[] array = { 10, 20, 30, 40, 50, 60, 70, 80, 90 };
+        int[] array={3,-1,4,-1,5,7,8,9,10,-1,-1,10,-1,11,-1,-1,-1,-1,6,-1,-1};
+         Node root1 = TreesCons(array);
+        // Node root1 = makeBST(array, 0, array.length - 1);
         // Node ans = LCANODE(root1, 30, 80);
-        Node ans = Rangeprint(root1, 30, 80);
-
+        //Node ans = Rangeprint(root1, 30, 80);
+       // display(root1);
+         LCSeq(root1,root1.data,1);
+            System.out.print(maxlen);
         // Node ans = adddata(root1, 25);
         // display(ans);
-       // System.out.println("LCA of two nodes : " + ans.data);
+        // System.out.println("LCA of two nodes : " + ans.data);
 
     }
 }
