@@ -1,3 +1,4 @@
+
 public class BTree {
     public static class Node {
         int data = 0;
@@ -119,6 +120,50 @@ public class BTree {
         return root;
     }
 
+    public static Node removedata(Node root, int data) {
+        // if()
+        if (root.left == null && root.right == null)
+            return null;
+        if (root.left == null || root.right == null) {
+            if (root.left == null) {
+
+            }
+
+        }
+        return root;
+    }
+
+    public static Node LCANODE(Node root, int a, int b) {
+        if (root == null)
+            return null;
+        if (root.data < a) {
+            return LCANODE(root.right, a, b);
+        } else if (b < root.data) {
+            return LCANODE(root.left, a, b);
+        } else {
+            return root;
+        }
+
+    }
+
+    public static Node Rangeprint(Node root, int a, int b) {
+        if (root == null)
+            return null;
+            if(root.data<a){
+                return Rangeprint(root.right, a, b);
+            }
+            else if (b < root.data) {
+                return Rangeprint(root.left, a, b);
+            } else {
+                if(root.data>=a && root.data<=b){
+                System.out.println(root.data);
+                }
+                Rangeprint(root.right, a, b);
+                Rangeprint(root.left, a, b);
+                return root;
+            }
+    }
+
     public static void main(String[] args) {
         // int[] arr = { 10, 20, 30, -1, -1, 40, -1, -1, 50, 60, 80, -1, -1, -1, 70, 90,
         // -1, 100, -1, -1, -1 };
@@ -128,8 +173,12 @@ public class BTree {
         // display( root);
         int[] array = { 10, 20, 30, 40, 50, 60, 70, 80, 90 };
         Node root1 = makeBST(array, 0, array.length - 1);
-        Node ans = adddata(root1, 25);
-        display(ans);
+        // Node ans = LCANODE(root1, 30, 80);
+        Node ans = Rangeprint(root1, 30, 80);
+
+        // Node ans = adddata(root1, 25);
+        // display(ans);
+       // System.out.println("LCA of two nodes : " + ans.data);
 
     }
 }
