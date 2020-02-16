@@ -48,11 +48,10 @@ class trreslec9 {
             else
                 return true;
         }
-        prev = node;
+       prev = node;
         res = res || Recover_BST(node.right);
         return res;
     }
-
     }
 
     public static void main(String[] args) {

@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class BTree {
     public static class Node {
@@ -23,6 +24,9 @@ public class BTree {
     static int idx = 0;
 
     public static Node TreesCons(int[] arr) {
+        if (idx == arr.length) {
+            return null;
+        }
         if (arr[idx] == -1) {
             idx++;
             return null;
@@ -164,7 +168,9 @@ public class BTree {
     }
 
     static int maxlen = 1;
-//=====================================Longest consective Sequence================================
+
+    // =====================================Longest consective
+    // Sequence================================
     public static void LCSeq(Node root, int potential, int currlen) {
         if (root == null)
             return;
@@ -178,6 +184,64 @@ public class BTree {
         LCSeq(root.right, root.data + 1, currlen);
     }
 
+    // ===========================Morris
+    // traversal================================================================
+    public static Node rightmost(Node node, Node curr) {
+        while (node.right != null && node.right != curr) {
+            node = node.right;
+            // node.right = curr;
+        }
+        return node;
+    }
+
+    public static void morris(Node node) {
+        Node curr = node;
+        while (curr != null) {
+            Node nextleft = curr.left;
+            if (nextleft == null) {
+                System.out.print(curr.data + " ");
+                curr = curr.right;
+                continue;
+            }
+            Node rightmost = rightmost(nextleft, curr);
+            if (rightmost.right == null) {
+                rightmost.right = curr;// thread
+                curr = curr.left;
+            } else {
+                rightmost.right = null;// thread break
+                System.out.print(curr.data + " ");
+                curr = curr.right;
+            }
+        }
+
+    }
+
+    class traversal {
+        Node node = null;
+        boolean Selfdone = false;
+        boolean leftdone = false;
+        boolean rightdone = false;
+
+        traversal(Node node) {
+            this.node = node;
+        }
+    }
+    static int maxSum=0;
+    public static int leaftoleafmaxsum(Node root)
+     {
+        if (root == null)
+            return (int) -1e7;
+            if(root.left == null && root.right == null)
+                return root.data;
+            int leftsum = leaftoleafmaxsum(root.left);
+        int rightsum = leaftoleafmaxsum(root.right);
+        if (root.left != null && root.right != null){
+            maxSum = Math.max(maxSum, leftsum + rightsum + root.data);
+        return Math.max(leftsum, rightsum) + root.data;
+        }
+        return root.left == null?rightsum + root.data : leftsum + root.data; 
+    }
+
     public static void main(String[] args) {
         // int[] arr = { 10, 20, 30, -1, -1, 40, -1, -1, 50, 60, 80, -1, -1, -1, 70, 90,
         // -1, 100, -1, -1, -1 };
@@ -185,19 +249,26 @@ public class BTree {
         // System.out.println(height(root));
         // System.out.println(size(root));
         // display( root);
-        //int[] array = { 10, 20, 30, 40, 50, 60, 70, 80, 90 };
-        int[] array={3,-1,4,-1,5,7,8,9,10,-1,-1,10,-1,11,-1,-1,-1,-1,6,-1,-1};
-         Node root1 = TreesCons(array);
+        // // int[] array = { 10, 20, 30, 40, 50, 60, 70, 80, 90 };
+        // int[] array = { 3, -1, 4, -1, 5, 7, 8, 9, 10, -1, -1, 10, -1, 11, -1, -1, -1,
+        // -1, 6, -1, -1 };
+        // Node root1 = TreesCons(array);
         // Node root1 = makeBST(array, 0, array.length - 1);
         // Node ans = LCANODE(root1, 30, 80);
-        //Node ans = Rangeprint(root1, 30, 80);
-       // display(root1);
-         LCSeq(root1,root1.data,1);
-            System.out.print(maxlen);
+        // Node ans = Rangeprint(root1, 30, 80);
+        // display(root1);
+        // LCSeq(root1, root1.data, 1);
+        // System.out.print(maxlen);
         // Node ans = adddata(root1, 25);
         // display(ans);
         // System.out.println("LCA of two nodes : " + ans.data);
+        int[] array = { 3, 4, -1, 5, 7, 8, 9, 10, -1, -1, 10, -1, 11, -1, -1, -1, -1, 6, -1, -1 };
+        Node root1 = TreesCons(array);
+        System.out.print(leaftoleafmaxsum(root1));
+        //display(root1);
+        //morris(root1);
 
+        
     }
 }
 // int float - < java *
